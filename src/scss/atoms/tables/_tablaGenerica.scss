@@ -1,0 +1,20 @@
+.tableGen {
+  table-layout: fixed;
+  .tableGen-head {
+    .head-row {
+      background-color: rgb(130, 136, 141);
+      .head-row_data {
+        color: white;
+      }
+    }
+  }
+
+  .tableGen-body {
+    .body-row {
+      &.seleccionar {
+        background-color: rgb(106, 170, 223);
+        color: white;
+      }
+    }
+  }
+}
