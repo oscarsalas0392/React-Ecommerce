@@ -1,19 +1,48 @@
+%invisible {
+  display: none;
+}
+
 .tableGen {
+  width: 100%;
+  border-collapse: collapse;
   table-layout: fixed;
+
   .tableGen-head {
     .head-row {
-      background-color: rgb(130, 136, 141);
+      height: 1.5rem;
+      background-color: #081f6a;
+
       .head-row_data {
+        &.invisible {
+          @extend %invisible;
+        }
         color: white;
+        text-align: left;
+        padding: 0.2rem;
+        text-transform: capitalize;
+        user-select: none;
       }
     }
   }
 
   .tableGen-body {
     .body-row {
+      height: 1.4rem;
+      &:nth-of-type(even) {
+        background-color: #a6b4c775;
+      }
       &.seleccionar {
-        background-color: rgb(106, 170, 223);
+        background-color: #3f83bb;
         color: white;
+      }
+
+      .body-row_data {
+        &.invisible {
+          @extend %invisible;
+        }
+        padding: 0.2rem;
+        padding-right: 0.9rem;
+        user-select: none;
       }
     }
   }

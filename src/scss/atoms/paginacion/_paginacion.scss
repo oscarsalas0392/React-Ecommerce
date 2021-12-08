@@ -1,0 +1,19 @@
+.content-paginacion {
+  padding-top: 1rem;
+
+  .pagina {
+    &.seleccionada {
+      background-color: rgb(231, 224, 224);
+    }
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+    line-height: 2rem;
+    margin-right: 0.3rem;
+    border: 1px solid #081f6a;
+    user-select: none;
+  }
+}

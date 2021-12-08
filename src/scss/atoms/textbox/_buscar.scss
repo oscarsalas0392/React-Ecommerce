@@ -1,0 +1,26 @@
+.content-buscar {
+  position: relative;
+
+  .content-icon {
+    position: absolute;
+    right: 0;
+    top: -5px;
+
+    &.invisible {
+      display: none;
+    }
+  }
+
+  .buscar {
+    width: 100%;
+    margin-bottom: 0.4rem;
+    padding: 0;
+    border: 0;
+    border-bottom: 2px solid #081f6a;
+    &:focus {
+      border: 0;
+      border-bottom: 2px solid #081f6a;
+      outline: none;
+    }
+  }
+}
