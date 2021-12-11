@@ -1,48 +1,33 @@
 import React from "react";
+import PropTypes  from "prop-types"
+
 import { Paginacion } from "../../atoms/paginacion/Paginacion";
 import { TableGenerica } from "../../atoms/table/TableGenerica";
 import { Buscar } from "../../atoms/textbox/Buscar";
 
 
+
 export const MTabla =({columnas,filas,actual,total})=>{
 
-    /*const columnas =[
 
-        {
-          mostrar:false,
-          nombre:"id"
-        },
-        
-        {
-          mostrar:true,
-          nombre:"Nombre"
-        },
-        
-        {
-          mostrar:true,
-          nombre:"Fecha"
-        }
-      ]
-      const filas =[
-        {
-          id: "1",
-          nombre: "Componentes",
-          fecha: "2021-11-29T13:34:43.277"
-         },
-         {
-          id: "2",
-          nombre: "Procesadores",
-          fecha: "2021-11-29T13:34:43.28"
-        }
-    ]*/
-        
     return (
 
            <div>
-             <Buscar/>
-             <TableGenerica  columnas={columnas} filas={filas}  />
-             <Paginacion actual={actual} total={total}/>
+            
+             { total>=0 && (<Buscar/>)}
+             <div className="content-tablaGenica">
+              <TableGenerica  columnas={columnas} filas={filas}  />
+             </div>      
+             { total>=0 && (<Paginacion actual={actual} total={total}/>)}
+             
            </div>
     );
  
+}
+
+MTabla.propTypes={
+  columnas:PropTypes.array.isRequired,
+  filas:PropTypes.array.isRequired,
+  actual:PropTypes.number.isRequired,
+  total:PropTypes.number.isRequired
 }

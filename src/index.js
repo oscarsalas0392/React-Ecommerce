@@ -1,10 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import EcommerceApp from './EcommerceApp';
+import  {Provider} from 'react-redux'
+
+import { store } from './store/store';
+import { ListCategorias } from './components/organisms/Categoria/ListCategorias';
 import './scss/ecommerce.scss';
 
 ReactDOM.render(
-    <EcommerceApp />,
+  <Provider store={store}>
+     <ListCategorias />
+  </Provider>
+   ,
   document.getElementById('root')
 );
 

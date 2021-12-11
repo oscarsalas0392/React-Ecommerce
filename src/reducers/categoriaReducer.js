@@ -1,21 +1,22 @@
-import React from "react";
 
-const initState ={
-    id=1,
-    nombre="",
-    fecha=""
+import { types } from "../types/types";
+
+const initialState = {
+    id:1,
+    nombre:"",
+    fecha:""
 }
 
 
-export const categoriaReducer =(state=initState,action)=>{
+export const categoriaReducer = (state=initialState,action)=>{
 
   switch (action.type) {
-      case value:
-          
-          break;
-  
+      case types.categoriaGet:
+          return {
+               ...action.payload            
+          }        
       default:
-          break;
+        return state;
   }
 
 }

@@ -1,19 +1,45 @@
-.content-paginacion {
-  padding-top: 1rem;
+$paginacion-tamano: 1.8rem;
 
-  .pagina {
-    &.seleccionada {
-      background-color: rgb(231, 224, 224);
-    }
-    border-radius: 50%;
-    background-color: rgb(255, 255, 255);
+%estiloSpan {
+  border-radius: 13%;
+  background-color: rgb(255, 255, 255);
+  display: inline-block;
+  width: $paginacion-tamano;
+  height: $paginacion-tamano;
+  text-align: center;
+  line-height: $paginacion-tamano;
+  border: 0.1rem solid #617acc;
+  user-select: none;
+  color: #617acc;
+}
+
+.content-paginacion {
+  text-align: center;
+  .paginacion {
+    padding-top: 1rem;
     display: inline-block;
-    width: 2rem;
-    height: 2rem;
-    text-align: center;
-    line-height: 2rem;
-    margin-right: 0.3rem;
-    border: 1px solid #081f6a;
-    user-select: none;
+    .next,
+    .back {
+      &.visible {
+        display: inline-block;
+        @extend %estiloSpan;
+      }
+
+      transition: 10s active;
+      &:active {
+        background-color: steelblue;
+        color: white;
+      }
+
+      display: none;
+    }
+
+    .pagina {
+      &.seleccionada {
+        background-color: steelblue;
+        color: white;
+      }
+      @extend %estiloSpan;
+    }
   }
 }

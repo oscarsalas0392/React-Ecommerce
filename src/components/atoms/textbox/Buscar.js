@@ -5,8 +5,6 @@ export const Buscar = ()=>{
     
     const [valor, setValor] = useState("")
 
-
-
     const handleFocus=()=>{
         const divBuscar=document.querySelector('.content-icon');
         divBuscar.classList.add('invisible')
@@ -14,7 +12,7 @@ export const Buscar = ()=>{
 
     const handleBlur=()=>{
         const divBuscar=document.querySelector('.content-icon');       
-        valor=="" && divBuscar.classList.remove('invisible');       
+        valor==="" && divBuscar.classList.remove('invisible');       
     }
 
     const handleOnchange=(e)=>{

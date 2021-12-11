@@ -6,5 +6,10 @@ export const types ={
      categoriaGetId:'[categoria] Buscar categoria',
      categoriaAdd:'[categoria] Agregar categoria',
      categoriaDelete:'[categoria] Eliminar categoria',
-     categoriaUpdate:'[categoria] Actualizar categoria'
+     categoriaUpdate:'[categoria] Actualizar categoria',
+
+     filtrar:'[pageFilter] Filtar',
+
+     authLogin:'[auth] Login'
+
 }

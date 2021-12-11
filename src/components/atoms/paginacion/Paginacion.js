@@ -5,17 +5,15 @@ import React, {  useState } from "react"
 export const Paginacion =({actual,total})=>{
 
     const [pagAct, setPagAct] = useState(actual);
-    let count=0;
-
     const handleOnclick=({target})=>{
 
        let numero = parseInt(target.textContent);
        setPagAct(numero);
-       count=0;
+       
     }
 
     const handleOnclickBack=()=>{
-        count=0;
+
         if(pagAct>1)
         {
             setPagAct(x=>x-1);
@@ -23,7 +21,7 @@ export const Paginacion =({actual,total})=>{
      }
 
      const handleOnclickNext=()=>{
-        count=0;
+       
         if(total > pagAct)
         {
             setPagAct(x=>x+1);
@@ -36,35 +34,44 @@ export const Paginacion =({actual,total})=>{
         let maximo=5;
         let count=0;
         let classPag="";
+        let classEnable="";
+        let pag=1;
+        let totalPaginas=1;
 
-        content.push(<span key="<" className="pagina" onClick={handleOnclickBack}>{"<"}</span>);
-         
-        let pag = pagAct+4 > total ?  total-4 :pagAct;
+      
 
-        if(pagAct+4 >=total &&  total>5)
-        {
-            content.push(<span key="init">...</span>)
+        if(pagAct - Math.trunc(maximo/2) > 0  && total>maximo)
+        {             
+            pag= total>=pagAct + Math.trunc(maximo/2) ? pagAct - Math.trunc(maximo/2) : total-(maximo-1);         
+            totalPaginas= total>= pagAct + Math.trunc(maximo/2) ?  pagAct + Math.trunc(maximo/2) : total;
         }
 
-        for(let i=pag;i<=total;i++)
+        if( pagAct - Math.trunc(maximo/2) <= 0)
+        {
+            pag=1;
+            totalPaginas= maximo;
+        }  
+
+        classEnable =  totalPaginas > maximo ? classEnable="visible":"";
+        content.push(<span key="<" className={`next ${classEnable}`} onClick={handleOnclickBack}>{"<"}</span>);
+
+        for(let i=pag;i<=totalPaginas;i++)
         {            
-            if(count==maximo && pagAct+4 <total){break};
-             classPag = i==pagAct ? "pagina seleccionada" : "pagina";
+            if(count===maximo && pagAct+4 <total){break};
+             classPag = i===pagAct ? "pagina seleccionada" : "pagina";
              content.push(<span key={i}  className={classPag} onClick={handleOnclick}>{i}</span>);
              count++;          
         }
 
-        if(pagAct+4<total)
-        {
-            content.push(<span key="finish" >...</span>)
-        }
-
-        content.push(<span key=">"  className="pagina" onClick={handleOnclickNext}>{">"}</span>);
+        classEnable =  totalPaginas < total ? classEnable="visible":"";
+        content.push(<span key=">"  className={`back ${classEnable}`} onClick={handleOnclickNext}>{">"}</span>);
         return content;
     }
 
     return(
-
-        <div className="content-paginacion">{getPage()}</div>
+        <div  className="content-paginacion">
+            <div className="paginacion">{getPage()}</div>
+        </div>
+      
     )
 }
