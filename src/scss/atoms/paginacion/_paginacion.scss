@@ -8,9 +8,10 @@ $paginacion-tamano: 1.8rem;
   height: $paginacion-tamano;
   text-align: center;
   line-height: $paginacion-tamano;
-  border: 0.1rem solid #617acc;
+  border: 0.1rem solid #ff7f00;
   user-select: none;
-  color: #617acc;
+  background: #895104f5;
+  color: white;
 }
 
 .content-paginacion {
@@ -18,6 +19,7 @@ $paginacion-tamano: 1.8rem;
   .paginacion {
     padding-top: 1rem;
     display: inline-block;
+ 
     .next,
     .back {
       &.visible {
@@ -27,7 +29,7 @@ $paginacion-tamano: 1.8rem;
 
       transition: 10s active;
       &:active {
-        background-color: steelblue;
+        background-color: #ff9b10;
         color: white;
       }
 
@@ -35,8 +37,9 @@ $paginacion-tamano: 1.8rem;
     }
 
     .pagina {
+
       &.seleccionada {
-        background-color: steelblue;
+        background-color: #ff9b10;
         color: white;
       }
       @extend %estiloSpan;

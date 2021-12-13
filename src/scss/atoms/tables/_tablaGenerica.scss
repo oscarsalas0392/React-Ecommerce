@@ -9,9 +9,12 @@
 
   .tableGen-head {
     .head-row {
+      font-family: sans-serif;
+      font-weight: bold;
+      font-size: 1rem;
       height: 1.5rem;
-      background-color: steelblue;
-
+      background-color: #f9960df5;
+      border: 1px solid #ff7f00;
       .head-row_data {
         &.invisible {
           @extend %invisible;
@@ -28,15 +31,17 @@
   .tableGen-body {
     .body-row {
       height: 1.4rem;
-      &:nth-of-type(even) {
-        background-color: #a6b4c775;
-      }
+      background-color: #000000ba;
+      color: white;
+      font-family: sans-serif;
+      font-size: .9rem;
       &.seleccionar {
-        background-color: #3f83bb;
+        background-color: #ff9b10;
         color: white;
       }
 
       .body-row_data {
+        border: 1px solid #ff7f00;
         &.invisible {
           @extend %invisible;
         }

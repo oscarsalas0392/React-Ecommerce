@@ -5,6 +5,7 @@
     position: absolute;
     right: 0;
     top: -5px;
+    color: white;
 
     &.invisible {
       display: none;
@@ -16,10 +17,12 @@
     margin-bottom: 0.4rem;
     padding: 0;
     border: 0;
-    border-bottom: 2px solid #081f6a;
+    background: inherit;
+    color: white;
+    border-bottom: 2px solid #ff7f00;
     &:focus {
       border: 0;
-      border-bottom: 2px solid #081f6a;
+      border-bottom: 2px solid #ff7f00;
       outline: none;
     }
   }
