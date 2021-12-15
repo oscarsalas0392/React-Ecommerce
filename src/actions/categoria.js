@@ -15,6 +15,8 @@ export const CategoriasAll=(filtro)=>
             if(body.state)
             {
                 const {result} = body;
+                localStorage.setItem('token',body.token);
+                localStorage.setItem('token-init-date',new Date().getTime());
                 dispatch(Categorias(result));
             }
             else{
