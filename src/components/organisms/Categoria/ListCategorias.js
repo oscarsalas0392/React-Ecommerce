@@ -9,15 +9,15 @@ export const ListCategorias =()=>{
 
     const dispatch = useDispatch();
     dispatch(startLogin("root@hotmail.com","root123"))//pruebas
-    
+    const filtro = useSelector( state => state.filtro );
+  
+
     useEffect(() => {
         dispatch(CategoriasAll(filtro));
-    }, [])
+    }, [filtro])
 
     const categoria= useSelector( state => state.categoria );
-    const filtro = useSelector( state => state.filtro );
-
-
+  
     const columnas =[
 
         {
@@ -41,8 +41,8 @@ export const ListCategorias =()=>{
       return(
                      <MTabla columnas={columnas} 
                       filas={categoria.list}
-                      actual={2}
-                      total={10}
+                      actual={categoria.paginaActual}
+                      total={categoria.paginas}
                       />
         )
     }

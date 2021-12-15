@@ -5,10 +5,11 @@ import  {Provider} from 'react-redux'
 import { store } from './store/store';
 import { ListCategorias } from './components/organisms/Categoria/ListCategorias';
 import './scss/ecommerce.scss';
+import { ListProducto } from './components/organisms/Producto/ListProductos';
 
 ReactDOM.render(
   <Provider store={store}>
-     <ListCategorias />
+     <ListProducto />
   </Provider>
    ,
   document.getElementById('root')

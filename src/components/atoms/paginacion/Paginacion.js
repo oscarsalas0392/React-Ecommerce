@@ -1,15 +1,23 @@
-import React, {  useState } from "react"
+import React, {  useEffect, useState } from "react"
+import { useDispatch } from "react-redux";
+import { Filtrar } from "../../../actions/filtro";
 
 
 
 export const Paginacion =({actual,total})=>{
 
     const [pagAct, setPagAct] = useState(actual);
+    const dispatch = useDispatch();
+   
+    useEffect(() => {
+        dispatch(Filtrar({pagina:pagAct}));
+    }, [pagAct])
+
+    
     const handleOnclick=({target})=>{
 
        let numero = parseInt(target.textContent);
        setPagAct(numero);
-       
     }
 
     const handleOnclickBack=()=>{
@@ -38,19 +46,21 @@ export const Paginacion =({actual,total})=>{
         let pag=1;
         let totalPaginas=1;
 
-      
-
         if(pagAct - Math.trunc(maximo/2) > 0  && total>maximo)
         {             
             pag= total>=pagAct + Math.trunc(maximo/2) ? pagAct - Math.trunc(maximo/2) : total-(maximo-1);         
             totalPaginas= total>= pagAct + Math.trunc(maximo/2) ?  pagAct + Math.trunc(maximo/2) : total;
         }
 
-        if( pagAct - Math.trunc(maximo/2) <= 0)
+        /*if( pagAct - Math.trunc(maximo/2) <= 0)
         {
             pag=1;
-            totalPaginas= maximo;
-        }  
+        } */
+
+        if(total<=maximo)
+        {
+            totalPaginas=total;
+        }
 
         classEnable =  totalPaginas > maximo ? classEnable="visible":"";
         content.push(<span key="<" className={`next ${classEnable}`} onClick={handleOnclickBack}>{"<"}</span>);

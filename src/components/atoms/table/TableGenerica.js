@@ -33,7 +33,7 @@ export const TableGenerica = ({columnas,filas})=>{
 
                             <tr className="body-row " key={index} onClick={clickFila}>
                                  {Object.keys(fila).map((dato,index)=>(
-                                        <td className={columnas[index].mostrar ? "body-row_data" : "body-row_data invisible"} key={fila[dato]}>{fila[dato]}</td>
+                                        <td  className={columnas[index].mostrar ? "body-row_data" : "body-row_data invisible"} key={index}>{fila[dato]}</td>
                                  ))}                                                           
                             </tr>
                      ))}                     
