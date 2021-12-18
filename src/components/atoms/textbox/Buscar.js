@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { Filtrar } from "../../../actions/filtro";
 
 export const Buscar = ()=>{
    
     
-    const [valor, setValor] = useState("")
+    const [valor, setValor] = useState("");
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(Filtrar({filtro:valor}));
+    }, [valor])
 
     const handleFocus=()=>{
         const divBuscar=document.querySelector('.content-icon');

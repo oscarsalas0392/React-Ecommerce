@@ -11,8 +11,9 @@ export const ProductoAll =(filtro)=>{
     const resp= await fetchConToken('Producto/All',Object.values(filtro),'GET');
     const body = await resp.json();
 
-        if(body.state)
-        {
+ 
+        if(body.state==="true")
+        {          
             localStorage.setItem('token',body.token);
             localStorage.setItem('token-init-date',new Date().getTime());
             dispatch(Productos(body.result));

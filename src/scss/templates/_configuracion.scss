@@ -1,0 +1,20 @@
+.content-config {
+  display: flex;
+  .content-tabs {
+    .tab {
+      display: block;
+      background-color: #f9960df5;
+      text-decoration: none;
+      color: white;
+      height: 2rem;
+      width: 9rem;
+      padding: 0.5rem;
+      border-bottom: 1px solid black;
+    }
+  }
+  .content-list {
+    width: 100%;
+    padding: 1rem;
+    background-color: blanchedalmond;
+  }
+}

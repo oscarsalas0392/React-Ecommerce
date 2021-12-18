@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { Filtrar } from "../../../actions/filtro";
 
 
 export const TableGenerica = ({columnas,filas})=>{
 
+
+    const [columnaOrden, setColumnaOrden] = useState("id");
+    const [orden, setOrden] = useState(true);
+    const [colOrdenAnt, setColOrdenAnt] = useState("");
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(Filtrar({ordenColumna:columnaOrden,orden:orden}))
+    }, [columnaOrden,orden])
 
     const clickFila=(e)=>
     {
@@ -16,6 +28,15 @@ export const TableGenerica = ({columnas,filas})=>{
        e.target.parentNode.classList.add("seleccionar");
     }
 
+    const clickCeldaTitulo =({target})=>
+    {
+        const id = target.id;
+        colOrdenAnt != id ? setOrden(true) : setOrden(!orden); 
+        if(id) setColumnaOrden(id);  
+        
+        colOrdenAnt != id && setColOrdenAnt(target.id)   
+    }
+
     return (
              <table className="tableGen">
                  <thead className="tableGen-head">
@@ -23,7 +44,10 @@ export const TableGenerica = ({columnas,filas})=>{
                         {
                       
                           columnas.map(x=>(                           
-                            <th className={x.mostrar?"head-row_data":"head-row_data invisible"}  key={x.nombre}>{x.nombre}</th>                       
+                            <th onClick={clickCeldaTitulo} className={x.mostrar?"head-row_data":"head-row_data invisible"}  
+                                key={x.nombre}
+                                id={x.nombre}
+                                >{x.columna}</th>                       
                         ))}
                      </tr>
                  </thead>

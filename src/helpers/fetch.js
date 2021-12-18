@@ -32,7 +32,7 @@ export const fetchConToken=(endpoint,data,method="GET",PorId=false)=>{
         let params='';
         if(PorId===false)
         {
-                     
+     
             params=`/${data[0]}?columnaOrden=${data[1]}&ascendente=${data[2]}&columnaFiltro=${data[3]}&filtro=${data[4]}`
              return fetch(url+params,{
                 method,
@@ -44,8 +44,7 @@ export const fetchConToken=(endpoint,data,method="GET",PorId=false)=>{
         }
         else
         {
-             params=`?id=${data[0]}`
-            
+             params=`?id=${data[0]}`        
         }
 
         return fetch(url+params,{

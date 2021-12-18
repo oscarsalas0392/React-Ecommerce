@@ -1,0 +1,7 @@
+.content-Filtro {
+  display: flex;
+
+  & + div {
+    flex: auto;
+  }
+}

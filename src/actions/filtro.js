@@ -1,8 +1,8 @@
 import { types } from "../types/types"
 
 
-export const Filtrar=(filtro)=>({
+export const Filtrar=(data)=>({
   type:types.filtrar,
-  payload:filtro
+  payload:data
 })
 

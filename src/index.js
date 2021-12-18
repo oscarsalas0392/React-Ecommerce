@@ -6,10 +6,11 @@ import { store } from './store/store';
 import { ListCategorias } from './components/organisms/Categoria/ListCategorias';
 import './scss/ecommerce.scss';
 import { ListProducto } from './components/organisms/Producto/ListProductos';
+import { Configuracion } from './components/templates/configuracion/Configuracion';
 
 ReactDOM.render(
   <Provider store={store}>
-     <ListProducto />
+     <Configuracion />
   </Provider>
    ,
   document.getElementById('root')

@@ -2,8 +2,10 @@
 @import "/src/scss/atoms/textbox/buscar";
 @import "/src/scss/atoms/paginacion/paginacion";
 
+@import "/src/scss/molecules/buscar/mBuscar";
 
-body{
-    
-    background: #56504a;
+@import "/src/scss/templates/configuracion";
+
+body {
+  background: #56504a;
 }

@@ -5,8 +5,8 @@ const initialState ={
     pagina:1,
     ordenColumna:"",
     orden:true,
-    filtro:"",
-    filtroColumna:""
+    filtroColumna:"",
+    filtro:""
 }
 
 export const filtrarReducer =(state=initialState,action)=>{
@@ -16,7 +16,7 @@ export const filtrarReducer =(state=initialState,action)=>{
         return {
             ...state,
             ...action.payload
-        }
+            }
     
         default:
             return state;
