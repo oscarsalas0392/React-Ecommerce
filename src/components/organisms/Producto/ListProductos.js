@@ -7,7 +7,6 @@ import { MTabla } from "../../molecules/tabla/MTabla";
 export const ListProducto =()=>{
 
     const dispatch = useDispatch();
-    dispatch(startLogin("root@hotmail.com","root123"))//pruebas
     const filtro = useSelector( state => state.filtro );
   
 
@@ -19,25 +18,32 @@ export const ListProducto =()=>{
   
     const columnas =
     [
-        {mostrar:false,nombre:"id"},       
-        {mostrar:true,nombre:"nombre"},   
-        {mostrar:true,nombre:"descripcion"},
-        {mostrar:true,nombre:"precio"},
-        {mostrar:false,nombre:"descuento"},
-        {mostrar:false,nombre:"categoria1Des"},
-        {mostrar:false,nombre:"categoria2Des"},
-        {mostrar:false,nombre:"categoria3Des"},
-        {mostrar:false,nombre:"categoria4Des"},
-        {mostrar:false,nombre:"categoria5Des"},
-        {mostrar:false,nombre:"categoria1"},
-        {mostrar:false,nombre:"categoria2"},
-        {mostrar:false,nombre:"categoria3"},
-        {mostrar:false,nombre:"categoria4"},
-        {mostrar:false,nombre:"categoria5"},
-        {mostrar:false,nombre:"imagen"},
-        {mostrar:false,nombre:"fecha"},
-        {mostrar:true,nombre:"cantidad"},
+        {mostrar:false,nombre:"id",columna:""},       
+        {mostrar:true,nombre:"nombre",columna:"Nombre"},   
+        {mostrar:true,nombre:"descripcion",columna:"Descripción"},
+        {mostrar:true,nombre:"precio",columna:"Precio"},
+        {mostrar:false,nombre:"descuento",columna:""},
+        {mostrar:false,nombre:"categoria1Des",columna:""},
+        {mostrar:false,nombre:"categoria2Des",columna:""},
+        {mostrar:false,nombre:"categoria3Des",columna:""},
+        {mostrar:false,nombre:"categoria4Des",columna:""},
+        {mostrar:false,nombre:"categoria5Des",columna:""},
+        {mostrar:false,nombre:"categoria1",columna:""},
+        {mostrar:false,nombre:"categoria2",columna:""},
+        {mostrar:false,nombre:"categoria3",columna:""},
+        {mostrar:false,nombre:"categoria4",columna:""},
+        {mostrar:false,nombre:"categoria5",columna:""},
+        {mostrar:false,nombre:"imagen",columna:""},
+        {mostrar:false,nombre:"fecha",columna:""},
+        {mostrar:true,nombre:"cantidad",columna:"Cantidad"},
     ]
+
+    const colFiltro =
+    [
+        {value:"nombre",nombre:"Nombre"},
+        {value:"descripcion",nombre:"Descripción"}
+    ]
+
     if(producto.list !=null)
     { 
       return(
@@ -45,6 +51,7 @@ export const ListProducto =()=>{
                       filas={producto.list}
                       actual={producto.paginaActual}
                       total={producto.paginas}
+                      colFiltro={colFiltro}
                       />
         )
     }
