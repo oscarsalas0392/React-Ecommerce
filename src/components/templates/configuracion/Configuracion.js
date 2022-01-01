@@ -50,23 +50,29 @@ export const Configuracion = ()=>
    ]
 
    return (
+            <div className="content-config">    
 
-         <div className="content-config">        
-                 <div className="content-tabs">
-                     {
-                         listaTabs.map(x=>{
+        
+                    <div className="content-tabs">
+                        {
+                            listaTabs.map(x=>{
                             return (<a key={x.id} 
-                                      className="tab" 
-                                      id={x.id} 
-                                      onClick={HandleClick}
-                                      href="#" >{x.nombre}</a>)
-                         })
-                     }              
-                 </div>
+                                        className="tab" 
+                                        id={x.id} 
+                                        onClick={HandleClick}
+                                        href="#" >{x.nombre}</a>)
+                            })
+                        }              
+                    </div>
 
-                 <div className="content-list">
-                    {listaMostrar()}
+                    <div className="content-list">
+                    <h2 className="title-tab">{listaTabs.find(x=>x.id==lista).nombre}</h2>                
+                    <div className="content-table">
+                        {listaMostrar()}
+                    </div>
+                   
                 </div>           
-         </div>
+            </div>
+       
    )
 }

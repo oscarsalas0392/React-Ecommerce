@@ -1,20 +1,37 @@
 .content-config {
   display: flex;
   .content-tabs {
+    background: #141010;
     .tab {
       display: block;
-      background-color: #f9960df5;
+      background-color: #141010;
       text-decoration: none;
       color: white;
       height: 2rem;
-      width: 9rem;
+      width: 10rem;
       padding: 0.5rem;
-      border-bottom: 1px solid black;
+      border-bottom: 1px solid rgb(56, 53, 53);
+      line-height: 32px;
+      font-family: sans-serif;
+      font-size: 0.9rem;
+
+      &:focus {
+        background-color: rgb(70, 66, 66);
+      }
     }
   }
   .content-list {
     width: 100%;
     padding: 1rem;
-    background-color: blanchedalmond;
+    background-color: #dddad8;
+
+    .title-tab {
+      font-family: sans-serif;
+    }
+
+    .content-table {
+      background-color: #f1f1f1;
+      padding: 1rem;
+    }
   }
 }
