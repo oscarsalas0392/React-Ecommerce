@@ -6,10 +6,11 @@ export const fetchSinToken=(endpoint,data,method="GET")=>{
    
    if(method==="GET")
    {
-       const params=`?email=${data[0]}&password=${data[1]}`    
+       const params=`?email=${data[0]}&password=${data[1]}`;    
        return fetch(url+params);
    }
-   else{
+   else
+   {
          const options=
          {
              method,
