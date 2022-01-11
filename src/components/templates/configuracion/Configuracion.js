@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { startLogin } from "../../../actions/auth";
+
 
 import { typesConfig } from "../../../types/typesConfig"
 import { ListCategorias } from "../../organisms/Categoria/ListCategorias"
@@ -11,6 +13,7 @@ export const Configuracion = ()=>
 {
 
     const dispatch = useDispatch();
+
     dispatch(startLogin("root@hotmail.com","root123"))//pruebas
 
    const [lista, setLista] = useState(typesConfig.producto);
@@ -30,6 +33,8 @@ export const Configuracion = ()=>
 
         case typesConfig.producto:
             return(<ListProducto/>);
+        
+            default: return (<></>);
     }
    }
 
@@ -56,20 +61,25 @@ export const Configuracion = ()=>
                     <div className="content-tabs">
                         {
                             listaTabs.map(x=>{
-                            return (<a key={x.id} 
+                            return (<Link  key={x.id} 
                                         className="tab" 
                                         id={x.id} 
                                         onClick={HandleClick}
-                                        href="#" >{x.nombre}</a>)
+                                        to="" >{x.nombre}</Link>)
                             })
                         }              
                     </div>
 
+
                     <div className="content-list">
-                    <h2 className="title-tab">{listaTabs.find(x=>x.id==lista).nombre}</h2>                
+                    <h2 className="title-tab">{listaTabs.find(x=>x.id===lista).nombre}</h2>
+                            
                     <div className="content-table">
                         {listaMostrar()}
+                        <Link className="link-reset button type1 black" to={`/Configuracion/${lista}Add`} >Agregar</Link>
                     </div>
+
+                 
                    
                 </div>           
             </div>

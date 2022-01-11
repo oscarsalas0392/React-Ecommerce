@@ -5,7 +5,7 @@ const initialState ={
     pagina:1,
     ordenColumna:"",
     orden:true,
-    filtroColumna:"",
+    filtroColumna:"nombre",
     filtro:""
 }
 

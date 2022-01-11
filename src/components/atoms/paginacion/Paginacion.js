@@ -2,20 +2,17 @@ import React, {  useEffect, useState } from "react"
 import { useDispatch } from "react-redux";
 import { Filtrar } from "../../../actions/filtro";
 
-
-
 export const Paginacion =({actual,total})=>{
 
     const [pagAct, setPagAct] = useState(actual);
     const dispatch = useDispatch();
    
+
     useEffect(() => {
-        dispatch(Filtrar({pagina:pagAct}));
-    }, [pagAct])
+        dispatch(Filtrar({pagina:pagAct})); 
+    }, [dispatch,pagAct])
 
-    
     const handleOnclick=({target})=>{
-
        let numero = parseInt(target.textContent);
        setPagAct(numero);
     }

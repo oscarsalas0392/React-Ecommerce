@@ -1,7 +1,6 @@
 import { ProductoAll } from "../../../actions/producto";
 import React, { useEffect } from "react";
 import { useDispatch,useSelector } from "react-redux";
-import { startLogin } from "../../../actions/auth";
 import { MTabla } from "../../molecules/tabla/MTabla";
 
 export const ListProducto =()=>{
@@ -12,7 +11,7 @@ export const ListProducto =()=>{
 
     useEffect(() => {
         dispatch(ProductoAll(filtro));
-    }, [filtro])
+    }, [filtro,dispatch])
 
     const producto= useSelector( state => state.producto );
   

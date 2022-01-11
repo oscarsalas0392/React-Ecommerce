@@ -14,7 +14,7 @@ export const TableGenerica = ({columnas,filas})=>{
 
     useEffect(() => {
         dispatch(Filtrar({ordenColumna:columnaOrden,orden:orden}))
-    }, [columnaOrden,orden])
+    }, [columnaOrden,orden,dispatch])
 
     const clickFila=(e)=>
     {
@@ -26,15 +26,17 @@ export const TableGenerica = ({columnas,filas})=>{
         });
        
        e.target.parentNode.classList.add("seleccionar");
+
+    
     }
 
     const clickCeldaTitulo =({target})=>
     {
         const id = target.id;
-        colOrdenAnt != id ? setOrden(true) : setOrden(!orden); 
-        if(id) setColumnaOrden(id);  
-        
-        colOrdenAnt != id && setColOrdenAnt(target.id)   
+        colOrdenAnt !== id ? setOrden(true) : setOrden(!orden); 
+        if(id) setColumnaOrden(id);      
+        colOrdenAnt !== id && setColOrdenAnt(target.id)   
+   
     }
 
     return (

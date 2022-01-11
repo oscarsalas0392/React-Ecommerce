@@ -3,14 +3,12 @@ import ReactDOM from 'react-dom';
 import  {Provider} from 'react-redux'
 
 import { store } from './store/store';
-import { ListCategorias } from './components/organisms/Categoria/ListCategorias';
 import './scss/ecommerce.scss';
-import { ListProducto } from './components/organisms/Producto/ListProductos';
-import { Configuracion } from './components/templates/configuracion/Configuracion';
+import AppRouter from './router/AppRouter'
 
 ReactDOM.render(
   <Provider store={store}>
-     <Configuracion />
+    <AppRouter/>
   </Provider>
    ,
   document.getElementById('root')

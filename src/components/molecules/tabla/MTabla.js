@@ -3,7 +3,6 @@ import PropTypes  from "prop-types"
 
 import { Paginacion } from "../../atoms/paginacion/Paginacion";
 import { TableGenerica } from "../../atoms/table/TableGenerica";
-import { Buscar } from "../../atoms/textbox/Buscar";
 import { MBuscar } from "../buscar/MBuscar";
 
 
