@@ -7,7 +7,7 @@ import { MBuscar } from "../buscar/MBuscar";
 
 
 
-export const MTabla =({columnas,filas,actual,total,colFiltro})=>{
+export const MTabla =React.memo(({columnas,filas,actual,total,colFiltro})=>{
 
 
     return (
@@ -23,7 +23,7 @@ export const MTabla =({columnas,filas,actual,total,colFiltro})=>{
            </>
     );
  
-}
+})
 
 MTabla.propTypes={
   columnas:PropTypes.array.isRequired,

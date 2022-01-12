@@ -1,28 +1,28 @@
-import React, {  useEffect, useState } from "react"
+import React, {  useState } from "react"
 import { useDispatch } from "react-redux";
 import { Filtrar } from "../../../actions/filtro";
 
-export const Paginacion =({actual,total})=>{
+export const Paginacion =  React.memo(({actual,total})=>{
 
     const [pagAct, setPagAct] = useState(actual);
     const dispatch = useDispatch();
-   
-
-    useEffect(() => {
-        dispatch(Filtrar({pagina:pagAct})); 
-    }, [dispatch,pagAct])
 
     const handleOnclick=({target})=>{
        let numero = parseInt(target.textContent);
        setPagAct(numero);
     }
+    /*useEffect(() => {
+        dispatch(Filtrar({pagina:pagAct}));
+    }, [pagAct,dispatch])*/
 
     const handleOnclickBack=()=>{
 
         if(pagAct>1)
         {
             setPagAct(x=>x-1);
+            dispatch(Filtrar({pagina:pagAct}));
         }
+        
      }
 
      const handleOnclickNext=()=>{
@@ -30,6 +30,7 @@ export const Paginacion =({actual,total})=>{
         if(total > pagAct)
         {
             setPagAct(x=>x+1);
+            dispatch(Filtrar({pagina:pagAct}));
         }
      }
 
@@ -48,11 +49,6 @@ export const Paginacion =({actual,total})=>{
             pag= total>=pagAct + Math.trunc(maximo/2) ? pagAct - Math.trunc(maximo/2) : total-(maximo-1);         
             totalPaginas= total>= pagAct + Math.trunc(maximo/2) ?  pagAct + Math.trunc(maximo/2) : total;
         }
-
-        /*if( pagAct - Math.trunc(maximo/2) <= 0)
-        {
-            pag=1;
-        } */
 
         if(total<=maximo)
         {
@@ -81,4 +77,4 @@ export const Paginacion =({actual,total})=>{
         </div>
       
     )
-}
+})

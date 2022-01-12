@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { useDispatch } from "react-redux";
 import { Filtrar } from "../../../actions/filtro";
 
@@ -7,9 +7,6 @@ export const Buscar = ()=>{
     const [valor, setValor] = useState("");
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(Filtrar({filtro:valor}));      
-    }, [dispatch,valor])
 
     const handleFocus=()=>{
         const divBuscar=document.querySelector('.content-icon');
@@ -22,6 +19,7 @@ export const Buscar = ()=>{
     }
 
     const handleOnchange=(e)=>{
+        dispatch(Filtrar({filtro:e.target.value}));
         setValor(e.target.value)
     }
 

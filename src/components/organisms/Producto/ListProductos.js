@@ -7,14 +7,13 @@ export const ListProducto =()=>{
 
     const dispatch = useDispatch();
     const filtro = useSelector( state => state.filtro );
-  
+    const producto= useSelector( state => state.producto );
 
     useEffect(() => {
         dispatch(ProductoAll(filtro));
     }, [filtro,dispatch])
 
-    const producto= useSelector( state => state.producto );
-  
+    
     const columnas =
     [
         {mostrar:false,nombre:"id",columna:""},       

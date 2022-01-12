@@ -1,20 +1,15 @@
-import React, { useState,useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Filtrar } from "../../../actions/filtro";
 
 
-export const TableGenerica = ({columnas,filas})=>{
+export const TableGenerica = React.memo(({columnas,filas})=>{
 
 
     const [columnaOrden, setColumnaOrden] = useState("id");
     const [orden, setOrden] = useState(true);
     const [colOrdenAnt, setColOrdenAnt] = useState("");
-
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(Filtrar({ordenColumna:columnaOrden,orden:orden}))
-    }, [columnaOrden,orden,dispatch])
 
     const clickFila=(e)=>
     {
@@ -35,8 +30,8 @@ export const TableGenerica = ({columnas,filas})=>{
         const id = target.id;
         colOrdenAnt !== id ? setOrden(true) : setOrden(!orden); 
         if(id) setColumnaOrden(id);      
-        colOrdenAnt !== id && setColOrdenAnt(target.id)   
-   
+        colOrdenAnt !== id && setColOrdenAnt(target.id);
+        dispatch(Filtrar({ordenColumna:columnaOrden,orden:orden}));   
     }
 
     return (
@@ -67,4 +62,4 @@ export const TableGenerica = ({columnas,filas})=>{
              </table>
     )
 
-}
+})

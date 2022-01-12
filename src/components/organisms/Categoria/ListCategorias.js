@@ -9,13 +9,12 @@ export const ListCategorias =()=>{
 
     const dispatch = useDispatch();
     const filtro = useSelector( state => state.filtro );
+    const categoria= useSelector( state => state.categoria );
 
     useEffect(() => {
         dispatch(CategoriasAll(filtro));
     }, [filtro,dispatch])
 
-    const categoria= useSelector( state => state.categoria );
-  
     const columnas =
     [
         {mostrar:false,nombre:"id",columna:""},        
